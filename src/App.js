@@ -3,7 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   // setting up for the alert message...
@@ -31,22 +32,34 @@ function App() {
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
+      document.title = "TextUtils App";
       showAlert("Light mode enabled", "success");
     }
   };
 
   return (
     <>
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container mb-5">
-        <TextForm
-          showAlert={showAlert}
-          heading="Enter your text here:"
-          mode={mode}
-        />
-      </div>
-      {/* <About /> */}
+      <BrowserRouter>
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <Routes>
+          <Route path="/about" element={<About mode={mode} />} />
+          <Route
+            path="/"
+            element={
+              <div className="container mb-5">
+                <TextForm
+                  showAlert={showAlert}
+                  heading="Enter your text here:"
+                  mode={mode}
+                />
+              </div>
+            }
+          />
+        </Routes>
+
+        {/* <About /> */}
+      </BrowserRouter>
     </>
   );
 }

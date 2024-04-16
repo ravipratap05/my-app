@@ -70,7 +70,7 @@ export default function TextForm(props) {
         }}
       >
         <h1 className="mb-4">{props.heading}</h1>
-        <div class="mb-3">
+        <div className="mb-3">
           <textarea
             className="form-control"
             id="Textarea"
@@ -83,38 +83,41 @@ export default function TextForm(props) {
             value={text}
           ></textarea>
         </div>
-        <div className="d-flex justify-content-center">
+        <div className="d-flex align-content-start flex-wrap">
           <button
-            className="btn btn-outline-primary mx-1"
+            className="btn btn-outline-primary mx-1 my-1"
             onClick={handleSentence}
           >
             Sentence Case
           </button>
           <button
-            className="btn btn-outline-success mx-1"
+            className="btn btn-outline-success mx-1 my-1"
             onClick={handleUpper}
           >
             Upper Case
           </button>
           <button
-            className="btn btn-outline-success mx-1"
+            className="btn btn-outline-success mx-1 my-1"
             onClick={handleLower}
           >
             Lower Case
           </button>
           <button
-            className="btn btn-outline-secondary mx-1"
+            className="btn btn-outline-secondary mx-1 my-1"
             onClick={handleCopy}
           >
             Copy
           </button>
           <button
-            className="btn btn-outline-secondary mx-1"
+            className="btn btn-outline-secondary mx-1 my-1"
             onClick={handleRemoveSpace}
           >
             Remove Extra Spaces
           </button>
-          <button className="btn btn-outline-danger mx-1" onClick={handleClear}>
+          <button
+            className="btn btn-outline-danger mx-1 my-1"
+            onClick={handleClear}
+          >
             Clear
           </button>
         </div>

@@ -6,31 +6,28 @@ export default function TextForm(props) {
   // setText = "newText" --> this is the correct way to setting the text.
 
   const handleUpper = () => {
-    console.log("clicked on uppercase!" + text);
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted into uppercase!", "success");
   };
 
   const handleLower = () => {
-    console.log("clicked on lowercase!" + text);
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted into lowercase!", "success");
   };
 
   const handleClear = () => {
-    console.log("clicked on clear!" + text);
     let newText = "";
     setText(newText);
     props.showAlert("Text cleared, Empty box!", "success");
   };
 
   const handleCopy = () => {
-    console.log("clicked on copy!");
     let newText = text;
     navigator.clipboard.writeText(newText);
     setText(newText);
+
     props.showAlert("Copied!", "success");
   };
 
@@ -49,7 +46,6 @@ export default function TextForm(props) {
   };
 
   const handleChange = (event) => {
-    console.log("clicked on change!");
     setText(event.target.value);
   };
 
@@ -87,36 +83,42 @@ export default function TextForm(props) {
           <button
             className="btn btn-outline-primary mx-1 my-1"
             onClick={handleSentence}
+            disabled={text.length === 0}
           >
             Sentence Case
           </button>
           <button
             className="btn btn-outline-success mx-1 my-1"
             onClick={handleUpper}
+            disabled={text.length === 0}
           >
             Upper Case
           </button>
           <button
             className="btn btn-outline-success mx-1 my-1"
             onClick={handleLower}
+            disabled={text.length === 0}
           >
             Lower Case
           </button>
           <button
             className="btn btn-outline-secondary mx-1 my-1"
             onClick={handleCopy}
+            disabled={text.length === 0}
           >
             Copy
           </button>
           <button
             className="btn btn-outline-secondary mx-1 my-1"
             onClick={handleRemoveSpace}
+            disabled={text.length === 0}
           >
             Remove Extra Spaces
           </button>
           <button
             className="btn btn-outline-danger mx-1 my-1"
             onClick={handleClear}
+            disabled={text.length === 0}
           >
             Clear
           </button>

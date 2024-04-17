@@ -27,12 +27,14 @@ function App() {
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = "#232540";
-      document.title = "TextUtils App (Dark Mode)";
+      document.title =
+        "TextUtils App (Dark Mode) - Word Counter | Character Counter | Converted Uppercase to Lowercase | Converted Lowercase to Uppercase | Remove extra spaces & Copy Text";
       showAlert("Dark mode enabled", "success");
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
-      document.title = "TextUtils App";
+      document.title =
+        "TextUtils App - Word Counter | Character Counter | Converted Uppercase to Lowercase | Converted Lowercase to Uppercase | Remove extra spaces & Copy Text";
       showAlert("Light mode enabled", "success");
     }
   };
@@ -50,7 +52,7 @@ function App() {
               <div className="container mb-5">
                 <TextForm
                   showAlert={showAlert}
-                  heading="Enter your text here:"
+                  heading="TextUtils - Enter the text for transforming : "
                   mode={mode}
                 />
               </div>
